@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Microplastic Detection System</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#" class="active" data-tab="home">Home</a></li>
+      <li><a href="#" data-tab="history">History</a></li>
+      <li><a href="#" data-tab="about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="tab-content active">
+    <header class="main-header">
+      <h1>Microplastic Detection System</h1>
+      <p>Upload images to analyze and compare microplastic detections</p>
+    </header>
+
+    <div class="container">
+      <div class="upload-row">
+        <div class="upload-box">
+          <p><strong>Upload multiple images for comparison</strong></p>
+          <input type="file" id="fileInput" multiple accept="image/*" />
+        </div>
+      </div>
+
+      <div class="grid" id="imageGrid"></div>
+
+      <div class="charts">
+        <div class="chart-box">
+          <h3>Per-Image Composition (counts by type)</h3>
+          <canvas id="compositionChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Accuracy per Image (%)</h3>
+          <canvas id="accuracyChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="history" class="tab-content">
+    <header class="main-header">
+      <h1>Detection History</h1>
+      <p>Previously uploaded images and their detection summaries</p>
+    </header>
+
+    <div class="container">
+      <div class="history-controls">
+        <button id="downloadCsv">Download CSV</button>
+        <button id="printReport">Download / Print Report (PDF)</button>
+      </div>
+
+      <table id="historyTable">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Dominant Type</th>
+            <th>Size</th>
+            <th>Accuracy</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="tab-content">
+    <header class="main-header">
+      <h1>About Microplastics</h1>
+      <p>Quick reference for judges and reviewers</p>
+    </header>
+
+    <div class="container about-section">
+      <p>
+        Microplastics are plastic particles smaller than 5 mm. They appear as fibers,
+        fragments, pellets and microbeads and come from many sources — clothing, packaging,
+        cosmetics and industrial processes. They can harm ecosystems and enter the food chain.
+      </p>
+      <ul>
+        <li><strong>Types:</strong> Fibers, Fragments, Pellets, Microbeads</li>
+        <li><strong>Impacts:</strong> ingestion by organisms, transport of pollutants</li>
+        <li><strong>How this system works:</strong> image input → (model analyzes) → outputs size/type/accuracy → visual comparisons & history</li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
